@@ -17,7 +17,7 @@
           'plugins/wato/check_parameters_win_scheduled_task.py',
           'plugins/wato/agent_bakery_win_scheduled_task.py',
         ]},
-    'name': 'dell_mdss',
+    'name': 'win_scheduled_task',
     'title': u'Check for Windows ScheduledTask',
     'version': '1.0',
     'version.min_required': '1.6.0',
