@@ -1,0 +1,25 @@
+{
+    'author': u'Marius Rieder <marius.rieder@scs.ch>',
+    'description': u'This package contains a check plugin to Monitor Windows SchduledTasks',
+    'download_url': 'https://github.com/jiuka/checkmk_windows_scheduled_task/releases',
+    'files': {
+        'agents': [
+          'bakery/win_scheduled_task',
+          'windows/plugins/win_scheduled_task.ps1',
+        ],
+        'checkman': ['win_scheduled_task'],
+        'checks': ['win_scheduled_task'],
+        'doc': [],
+        'inventory': [],
+        'notifications': [],
+        'pnp-templates': [],
+        'web': [
+          'plugins/wato/check_parameters_win_scheduled_task.py',
+          'plugins/wato/agent_bakery_win_scheduled_task.py',
+        ]},
+    'name': 'dell_mdss',
+    'title': u'Check for Windows ScheduledTask',
+    'version': '1.0',
+    'version.min_required': '1.6.0',
+    'version.packaged': '1.6.0p9'
+}

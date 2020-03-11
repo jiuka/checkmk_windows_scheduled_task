@@ -1,0 +1,16 @@
+title: Check Windows Scheduled task status
+agents: windows
+catalog: os/misc
+distribution:
+author: Marius Rieder <marius.rieder@scs.ch>
+license: GPL
+description:
+ This check monitors the status of the Windows Scheduled Tasks.
+
+ The check can be configured via the corresponding WATO rules {Windows Scheduled Task Discovery} and {Windows Scheduled Tasks}
+
+item:
+ The task name or task group name.
+
+inventory:
+ One check per task or task group as configured with {Windows Scheduled Task Discovery}
