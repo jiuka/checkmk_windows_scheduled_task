@@ -79,11 +79,11 @@ rulespec_registry.register(
         valuespec=_valuespec_inventory_win_scheduled_task_rules,
     ))
 
-def _item_spec__win_scheduled_tasks():
+def _item_spec_win_scheduled_tasks():
     return TextAscii(title=_("Name of the scheduled task"),
                      allow_empty=False)
 
-def _parameter_valuespec_services():
+def _parameter_valuespec_win_scheduled_tasks():
     return Dictionary(elements=[
         ("maxage",
          Tuple(
