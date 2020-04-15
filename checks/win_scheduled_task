@@ -26,13 +26,16 @@ def parse_win_scheduled_task(items):
     parsed = {}
 
     for item in items:
-        parsed[item[0]] = {
-            'lastResult': saveint(item[1]),
-        }
-        if len(item) >= 3:
-            parsed[item[0]]['lastRun'] = time.strptime(item[2], "%m/%d/%Y %H:%M:%S")
-        if len(item) >= 4:
-            parsed[item[0]]['nextRun'] = time.strptime(item[3], "%m/%d/%Y %H:%M:%S")
+        try:
+            parsed[item[0]] = {
+                'lastResult': saveint(item[1]),
+            }
+            if len(item) >= 3:
+                parsed[item[0]]['lastRun'] = time.strptime(item[2], "%m/%d/%Y %H:%M:%S")
+            if len(item) >= 4:
+                parsed[item[0]]['nextRun'] = time.strptime(item[3], "%m/%d/%Y %H:%M:%S")
+        except:
+            pass
     return parsed
 
 def inventory_win_scheduled_task(parsed):
