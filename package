@@ -19,7 +19,7 @@
         ]},
     'name': 'win_scheduled_task',
     'title': u'Check for Windows ScheduledTask',
-    'version': '1.0',
+    'version': '1.1',
     'version.min_required': '1.6.0',
-    'version.packaged': '1.6.0p9'
+    'version.packaged': '1.6.0p11'
 }
