@@ -3,12 +3,13 @@
     'description': u'This package contains a check plugin to Monitor Windows SchduledTasks',
     'download_url': 'https://github.com/jiuka/checkmk_windows_scheduled_task/releases',
     'files': {
+        'agent_based': ['win_scheduled_task.py'],
         'agents': [
           'bakery/win_scheduled_task',
           'windows/plugins/win_scheduled_task.ps1',
         ],
         'checkman': ['win_scheduled_task'],
-        'checks': ['win_scheduled_task'],
+        'checks': [],
         'doc': [],
         'inventory': [],
         'notifications': [],
@@ -19,7 +20,7 @@
         ]},
     'name': 'win_scheduled_task',
     'title': u'Check for Windows ScheduledTask',
-    'version': '1.1',
-    'version.min_required': '1.6.0',
-    'version.packaged': '1.6.0p11'
+    'version': '2.0',
+    'version.min_required': '2.0.0b6',
+    'version.packaged': '2.0.0'
 }
