@@ -22,7 +22,7 @@
 # <<<win_scheduled_task:sep(9):encoding(cp437)>>>
 # \Adobe Acrobat Update Task	0	02/19/2021 17:00:00	02/20/2021 17:00:00
 # \Git for Windows Updater	0	02/19/2021 08:23:23	02/20/2021 08:23:23
-# \CreateExplorerShellUnelevatedTask	1073807364	08/15/2019 10:51:51	
+# \CreateExplorerShellUnelevatedTask	1073807364	08/15/2019 10:51:51
 
 import re
 from datetime import datetime
