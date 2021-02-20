@@ -109,7 +109,7 @@ register.check_plugin(
     name='win_scheduled_task',
     service_name='Task %s',
     discovery_function=discovery_win_scheduled_task,
-    discovery_ruleset_name='discovery_win_scheduled_task_rules',
+    discovery_ruleset_name='inventory_win_scheduled_task_rules',
     discovery_default_parameters={},
     discovery_ruleset_type=register.RuleSetType.ALL,
     check_function=check_win_scheduled_task,

@@ -134,5 +134,5 @@ rulespec_registry.register(
         item_spec=_item_spec_win_scheduled_tasks,
         match_type='dict',
         parameter_valuespec=_parameter_valuespec_win_scheduled_tasks,
-        title=lambda: _('Windows Scheduled Tasks'),
+        title=lambda: _('Windows Scheduled Task'),
     ))
