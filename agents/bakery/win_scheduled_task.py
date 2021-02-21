@@ -22,7 +22,7 @@
 from pathlib import Path
 from typing import Any
 
-from .bakery_api.v0 import FileGenerator, OS, Plugin, register
+from cmk.base.cee.plugins.bakery.bakery_api.v0 import FileGenerator, OS, Plugin, register
 
 
 def get_win_scheduled_task_files(conf: Any) -> FileGenerator:

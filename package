@@ -5,15 +5,10 @@
     'files': {
         'agent_based': ['win_scheduled_task.py'],
         'agents': [
-          'bakery/win_scheduled_task',
+          'bakery/win_scheduled_task.py',
           'windows/plugins/win_scheduled_task.ps1',
         ],
         'checkman': ['win_scheduled_task'],
-        'checks': [],
-        'doc': [],
-        'inventory': [],
-        'notifications': [],
-        'pnp-templates': [],
         'web': [
           'plugins/wato/check_parameters_win_scheduled_task.py',
           'plugins/wato/agent_bakery_win_scheduled_task.py',
@@ -22,5 +17,6 @@
     'title': u'Check for Windows ScheduledTask',
     'version': '2.0',
     'version.min_required': '2.0.0b6',
-    'version.packaged': '2.0.0'
+    'version.packaged': '2.0.0',
+    'version.usable_until': '2.1.0'
 }
