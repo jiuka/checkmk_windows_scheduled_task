@@ -82,10 +82,14 @@ def discovery_win_scheduled_task(params, section):
 def check_win_scheduled_task(item, params, section):
     now = datetime.now()
 
+    states = params['states']
+    if isinstance(params['states'], list):
+        states = dict(params['states'])
+
     for taskname in params['tasks']:
         if taskname in section:
             task = section[taskname]
-            state = State(params['states'].get(task['lastResult'], params.get('else', 2)))
+            state = State(states.get(task['lastResult'], params.get('else', 2)))
 
             if len(params['tasks']) > 1:
                 yield Result(state=state, notice=f'{taskname} last result: {task["lastResult"]}')
