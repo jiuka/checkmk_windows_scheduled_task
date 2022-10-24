@@ -87,44 +87,47 @@ def _item_spec_win_scheduled_tasks():
 
 
 def _parameter_valuespec_win_scheduled_tasks():
-    return Dictionary(elements=[
-        (
-            'maxage',
-            Tuple(
-                title=_('Maximal time since last run'),
-                elements=[
-                    Age(title=_('Warning if older than')),
-                    Age(title=_('Critical if older than')),
-                ],
-            )
-        ),
-        (
-            'states',
-            Transform(
-                ListOf(
-                    Tuple(
-                        elements=[
-                            Integer(title=_('Expected state')),
-                            MonitoringState(title=_('Resulting state')),
-                        ],
-                        default_value=(0, 0),
-                        orientation='horizontal',
-                    ),
-                    title=_('Services states'),
-                    help=_('You can specify a separate monitoring state for each lastrun state.')
-                ),
-                forth=lambda v: v if isinstance(v, list) else list(v.items()),
-                back=lambda v: dict(v),
-            )
-        ),
-        (
-            'else',
-            MonitoringState(
-                title=_('State if no entry matches'),
-                default_value=2,
+    return Dictionary(
+        elements=[
+            (
+                'maxage',
+                Tuple(
+                    title=_('Maximal time since last run'),
+                    elements=[
+                        Age(title=_('Warning if older than')),
+                        Age(title=_('Critical if older than')),
+                    ],
+                )
             ),
-        ),
-    ])
+            (
+                'states',
+                Transform(
+                    ListOf(
+                        Tuple(
+                            elements=[
+                                Integer(title=_('Expected state')),
+                                MonitoringState(title=_('Resulting state')),
+                            ],
+                            default_value=(0, 0),
+                            orientation='horizontal',
+                        ),
+                        title=_('Services states'),
+                        help=_('You can specify a separate monitoring state for each lastrun state.')
+                    ),
+                    forth=lambda v: v if isinstance(v, list) else list(v.items()),
+                    back=lambda v: dict(v),
+                )
+            ),
+            (
+                'else',
+                MonitoringState(
+                    title=_('State if no entry matches'),
+                    default_value=2,
+                ),
+            ),
+        ],
+        ignored_keys=['tasks'],
+    )
 
 
 rulespec_registry.register(
