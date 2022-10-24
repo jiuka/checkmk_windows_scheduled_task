@@ -101,8 +101,8 @@ def check_win_scheduled_task(item, params, section):
                 yield from check_levels(
                     value=age.total_seconds(),
                     levels_upper=params.get('maxage', None),
-                    render_func=render.timespan,
-                    label="Last Run",
+                    render_func=lambda f: render.timespan(f if f > 0 else -f),
+                    label='Last Run' if age.total_seconds() > 0 else "Last Run in",
                     notice_only=True,
                 )
         else:

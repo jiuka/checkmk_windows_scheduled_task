@@ -31,6 +31,7 @@ from cmk.base.plugins.agent_based import win_scheduled_task
 EXAMPLE_STRING_TABLE = [
     ['\\Adobe Acrobat Update Task', '0', '02/19/2021 17:00:00', '02/20/2021 17:00:00'],
     ['\\Git for Windows Updater', '0', '02/19/2021 08:23:23', '02/20/2021 08:23:23'],
+    ['\\BackToTheFuture', '0', '02/19/2021 18:01:01', '02/20/2021 18:01:01'],
     ['\\CreateExplorerShellUnelevatedTask', '1073807364', '08/15/2019 10:51:51'],
 ]
 EXAMPLE_SECTION = {
@@ -43,6 +44,11 @@ EXAMPLE_SECTION = {
         'lastResult': 0,
         'lastRun': datetime(2021, 2, 19, 8, 23, 23),
         'nextRun': datetime(2021, 2, 20, 8, 23, 23),
+    },
+    '\\BackToTheFuture': {
+        'lastResult': 0,
+        'lastRun': datetime(2021, 2, 19, 18, 1, 1),
+        'nextRun': datetime(2021, 2, 20, 18, 1, 1),
     },
     '\\CreateExplorerShellUnelevatedTask': {
         'lastResult': 1073807364,
@@ -146,6 +152,13 @@ def test_discovery_win_scheduled_task(params, section, result):
         [
             Result(state=State.OK, summary='last result: 0'),
             Result(state=State.CRIT, notice='Last Run: 9 hours 36 minutes (warn/crit at 1 hour 0 minutes/1 hour 6 minutes)'),
+        ]
+    ),
+    (
+        {'states': {0: 0}, 'tasks': ['\\BackToTheFuture']},
+        [
+            Result(state=State.OK, summary='last result: 0'),
+            Result(state=State.OK, notice='Last Run in: 1 minute 1 second'),
         ]
     ),
 ])
