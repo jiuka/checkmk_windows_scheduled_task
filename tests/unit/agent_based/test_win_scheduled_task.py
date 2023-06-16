@@ -92,7 +92,6 @@ def test_discovery_win_scheduled_task(params, section, result):
     assert list(win_scheduled_task.discovery_win_scheduled_task(params, section)) == result
 
 
-@pytest.mark.freeze_time('2021-02-19 18:00')
 @pytest.mark.parametrize('params, result', [
     (
         {'states': {0: 0}, 'tasks': ['\\Git for Windows Updater']},
@@ -162,5 +161,6 @@ def test_discovery_win_scheduled_task(params, section, result):
         ]
     ),
 ])
-def test_check_win_scheduled_task(params, result):
+def test_check_win_scheduled_task(freezer, params, result):
+    freezer.move_to('2021-02-19 18:00')
     assert list(win_scheduled_task.check_win_scheduled_task('item', params, EXAMPLE_SECTION)) == result

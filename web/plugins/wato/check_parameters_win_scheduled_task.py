@@ -32,7 +32,7 @@ from cmk.gui.valuespec import (
     Tuple,
 )
 
-from cmk.gui.plugins.wato import (
+from cmk.gui.plugins.wato.utils import (
     CheckParameterRulespecWithItem,
     rulespec_registry,
     RulespecGroupCheckParametersApplications,
@@ -105,10 +105,9 @@ def _parameter_valuespec_win_scheduled_tasks():
                     ListOf(
                         Tuple(
                             elements=[
-                                Integer(title=_('Expected state')),
-                                MonitoringState(title=_('Resulting state')),
+                                Integer(title=_('Expected state'), default_value=0),
+                                MonitoringState(title=_('Resulting state'), default_value=0),
                             ],
-                            default_value=(0, 0),
                             orientation='horizontal',
                         ),
                         title=_('Services states'),
