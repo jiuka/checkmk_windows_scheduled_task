@@ -6,6 +6,8 @@
 
 ## Description
 
+> [!IMPORTANT]  
+> EOL notice: Checkmk supports Windows (Schedules) Tasks without the need for an extension
 
 This Plugin and check can monitor Windows ScheduledTasks.
 
